@@ -34,4 +34,157 @@
 
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
-@import "@ionic/angular/css/palettes/dark.system.css";
+/* @import "@ionic/angular/css/palettes/dark.system.css";
+ */
+
+:root {
+    --ion-font-family: 'Tajawal', sans-serif !important;
+}
+
+ion-range::part(pin) {
+    transform: translate3d(0px, -24px, 0px) scale(1);
+}
+
+.swal-wide {
+    width: auto !important;
+}
+
+.rtl {
+    direction: rtl;
+}
+
+.ltr {
+    direction: ltr;
+}
+
+[dir='rtl'] .ion-icon {
+    direction: ltr !important;
+}
+
+toasta {
+    direction: rtl;
+}
+
+[dir='rtl'] input[dir='auto'] {
+    direction: rtl !important;
+}
+
+[dir='rtl'] .select-md {
+    padding-right: 0px !important;
+}
+
+[dir='rtl'] .alert-radio-icon,
+[dir='rtl'] .alert-checkbox-icon {
+    right: 16px !important;
+    left: 0px !important;
+}
+
+[dir='rtl'] .alert-radio-label {
+    padding-right: 25px !important;
+}
+
+.swal-wide {
+    width: auto !important;
+}
+
+.alert-tappable {
+    direction: rtl !important;
+}
+
+.alert-radio-label {
+    padding-right: 35px !important;
+    direction: ltr;
+    text-align: right;
+}
+
+.alert-rtl>.alert-message {
+    text-align: center !important;
+}
+
+.alert-rtl>.alert-wrapper>.alert-head>.alert-title {
+    text-align: center !important;
+}
+
+.alert-rtl>.alert-wrapper>.alert-input-group {
+    padding-bottom: 0px !important;
+    padding-top: 0px !important;
+    direction: rtl;
+}
+
+.swal2-html-container {
+    direction: rtl !important;
+}
+
+.input-fill-outline.input-label-placement-stacked.sc-ion-input-md-h .label-text-wrapper.sc-ion-input-md,
+.input-fill-outline.input-label-placement-floating.sc-ion-input-md-h .label-text-wrapper.sc-ion-input-md {
+    transform-origin: right top !important;
+}
+
+.label-floating {
+    transform: translateY(25%) scale(1) !important;
+}
+
+ion-alert>.alert-wrapper>,
+.alert-head {
+    text-align: center !important;
+}
+
+.swal2-timer-progress-bar {
+    background-color: red !important;
+}
+
+.leaflet-control-container .leaflet-routing-container-hide {
+    display: none !important;
+}
+
+ion-icon[slot='end'] {
+    margin-inline-start: 4px !important;
+}
+
+.action-sheet-button-inner.sc-ion-action-sheet-md {
+    justify-content: flex-end !important;
+}
+
+.action-sheet-title.sc-ion-action-sheet-md {
+    text-align: center !important;
+}
+
+.fs-7 {
+    font-size: 7px;
+}
+
+.fs-8 {
+    font-size: 8px;
+}
+
+.fs-9 {
+    font-size: 9px;
+}
+
+.fs-10 {
+    font-size: 10px;
+}
+
+.fs-11 {
+    font-size: 11px;
+}
+
+.fs-12 {
+    font-size: 12px;
+}
+
+.fs-13 {
+    font-size: 13px;
+}
+
+.fs-14 {
+    font-size: 14px;
+}
+
+.fs-15 {
+    font-size: 15px;
+}
+
+.fs-16 {
+    font-size: 16px;
+}
