@@ -18,6 +18,8 @@ export class Apiservice {
   fcm: any = null;
   user: any = null;
   uiid: any = null;
+  lat: any = null;
+  lng: any = null;
 
   constructor(public l: LoadingController, public nav: NavController, public t: ToastController,
     public r: Router, public a: AlertController, public menu: MenuController, public translate: TranslateService,

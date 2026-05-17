@@ -1,0 +1,86 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>{{api.trans('Select your route')}}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismiss()">{{api.trans('Close')}}</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="map-container">
+
+    <div class="map-preview skeleton-blocks" *ngIf="!map">
+      <div class="skeleton-badge">
+        <ion-skeleton-text [animated]="true"></ion-skeleton-text>
+      </div>
+
+      <div class="skeleton-map-grid">
+        <div class="grid-block block-1"><ion-skeleton-text [animated]="true"></ion-skeleton-text></div>
+        <div class="grid-block block-2"><ion-skeleton-text [animated]="true"></ion-skeleton-text></div>
+        <div class="grid-block block-3"><ion-skeleton-text [animated]="true"></ion-skeleton-text></div>
+      </div>
+
+      <div class="map-overlay-pin">
+        <div class="skeleton-pin-block">
+          <ion-skeleton-text [animated]="true"></ion-skeleton-text>
+        </div>
+      </div>
+
+      <div class="map-placeholder">
+        <ion-skeleton-text [animated]="true"
+          style="width: 100px; height: 16px; border-radius: 4px;"></ion-skeleton-text>
+      </div>
+    </div>
+
+    <!-- ── Search Bar Overlay ──────────────────────────── -->
+    <div class="search-overlay">
+      <div class="search-wrapper">
+        <div class="search-input-row">
+          <ion-icon name="search-outline" class="search-icon"></ion-icon>
+          <input type="text" class="search-input" [placeholder]="api.trans('Search address...')"
+            [(ngModel)]="searchQuery" (input)="onSearchInput($event)" (blur)="closeResults()" />
+          <ion-spinner *ngIf="isSearching" name="crescent" class="search-spinner"></ion-spinner>
+          <ion-icon *ngIf="!isSearching && searchQuery" name="close-circle" class="clear-icon"
+            (click)="searchQuery=''; showResults=false; searchResults=[]"></ion-icon>
+        </div>
+
+        <!-- Autocomplete Results -->
+        <ul class="autocomplete-list" *ngIf="showResults && searchResults.length > 0">
+          <li *ngFor="let result of searchResults" class="autocomplete-item" (mousedown)="selectResult(result)">
+            <ion-icon name="location-outline" class="result-icon"></ion-icon>
+            <span class="result-text">{{ result.display_name }}</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ── Leaflet Map ─────────────────────────────────── -->
+    <div id="leaflet-map"></div>
+
+    <!-- ── Center Pin ────────────────────────────────────── -->
+    <div class="center-marker">
+      <i class="bi bi-geo-alt-fill"></i>
+    </div>
+
+    <!-- ── Current Location Button ───────────────────────── -->
+    <button class="locate-btn" (click)="goToCurrentLocation()" [disabled]="isLocating"
+      [title]="api.trans('My Location')">
+      <ion-spinner *ngIf="isLocating" name="crescent" class="locate-spinner"></ion-spinner>
+      <ion-icon *ngIf="!isLocating" name="locate-outline"></ion-icon>
+    </button>
+
+  </div>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <div class="footer-content">
+      <p *ngIf="selectedAddress" class="address-text">{{ selectedAddress }}</p>
+      <ion-button [disabled]="!map || (!selectedAddress)" expand="block" shape="round" color="primary"
+        (click)="confirmLocation()">
+        {{api.trans('Confirm Location')}}
+      </ion-button>
+    </div>
+  </ion-toolbar>
+</ion-footer>
